@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        
+        .chat-container {
+            border: 1px solid #ccc;
+            max-width: 400px;
+            width: 300px; /* Adjust the width to fit the minimized chatbot */
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Center the chatbot horizontally */
+            transition: width 0.3s; /* Add transition effect for minimizing */
+        }
+        
+        .chat-area {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .chat-bubble {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+        .user {
+            background-color: #e6f7ff;
+        }
+        
+        .bot {
+            background-color: #f2f2f2;
+        }
+        
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background-color: #fff;
+            padding: 10px;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 8px;
+        }
+        
+        button {
+            margin-left: 10px;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        .chat-profile-pic {
+            /* Add CSS styles for the profile picture */
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container" id="chatContainer">
+        <button onclick="toggleChatbot()" style="position: absolute; top: -30px; right: 10px;">-</button>
+        <div class="chat-area" id="chatArea">
+            <img src="C:\Users\HP\OneDrive\Pictures\10_output.png" alt="Chatbot Profile Picture" class="chat-profile-pic">
+            <div class="chat-area" id="chatArea">
+            <div class="chat-bubble bot">Welcome to Holy Family! I'm your personal chat bot here to assist you.</div>
+            <div class="chat-bubble bot">You can ask me the following questions:</div>
+            
+            <ul class="chat-bubble bot" id="questionsList">
+                <li>Name of the Church</li>
+                <li>Name of the Church</li>
+                <li>Address of the Church</li>
+                <li>Location of the Church</li>
+                <li>What are the Seven Sacraments of the Catholic Church?</li>
+                <li>Who is the current Pope?</li>
+                <li>What is the significance of the Eucharist in Catholicism?</li>
+                <li>What is the Catholic stance on abortion?</li>
+                <li>What are the Ten Commandments in Catholic teachings?</li>
+                <li>How does the Catholic Church view Mary, the mother of Jesus?</li>
+                <li>What is the role of priests in the Catholic Church?</li>
+                <li>What are the major feast days and holy days of obligation in Catholicism?</li>
+                <li>How does the process of canonization work for Catholic saints?</li>
+                <li>What is the Catholic Church's position on same-sex marriage?</li>
+                <li>What are the core beliefs of the Catholic Church?</li>
+                <li>How many sacraments are there in Catholicism, and what are they?</li>
+                <li>Who is the current Pope and what is his role in the Catholic Church?</li>
+                <li>What is the significance of the Mass in Catholic worship?</li>
+                <li>How does the process of canonization work, and who are some well-known Catholic saints?</li>
+                <li>What is the Catholic Church's stance on social issues like abortion, same-sex marriage, and contraception?</li>
+                <li>What is the role of Mary and the saints in Catholic theology and worship?</li>
+                <li>How does the Catholic Church approach interfaith dialogue and relations with other Christian denominations?</li>
+                <li>What are some major Catholic holidays and observances?</li>
+                <li>How is the structure of the Catholic Church organized, from parishes to dioceses and beyond?</li>
+                <li>What is the significance of the Eucharist in Catholicism?</li>
+                <li>How does the Catholic Church interpret and teach about the Bible?</li>
+                <li>What is the process of becoming a Catholic through RCIA (Rite of Christian Initiation of Adults)?</li>
+                <li>How does the Catholic Church view and address issues of social justice and inequality?</li>
+                <li>What is the role of priests, bishops, and other clergy in the Catholic Church?</li>
+                <li>How does the Catholic Church view the concept of original sin?</li>
+                <li>What are the requirements and guidelines for receiving the Sacrament of Confession (Reconciliation)?</li>
+                <li>How does the Catholic Church handle cases of annulment for marriages?</li>
+                <li>What are the key teachings of Catholic moral theology?</li>
+                <li>How does the Catholic Church view the use of technology and social media in modern society?</li>
+            </ul>
+        </div>
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script>
+        let chatbotMinimized = false;
+
+        function toggleChatbot() {
+            const chatContainer = document.getElementById("chatContainer");
+            if (chatbotMinimized) {
+                // Maximize the chatbot
+                chatContainer.style.width = "300px";
+                chatContainer.style.height = "auto";
+            } else {
+                // Minimize the chatbot
+                chatContainer.style.width = "50px";
+                chatContainer.style.height = "50px";
+            }
+            chatbotMinimized = !chatbotMinimized;
+        }
+
+        // Rest of the JavaScript code...
+    </script>
+</body>
+</html>
